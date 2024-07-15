@@ -10,7 +10,7 @@ def about(request):
 
 
 def services(request):
-    return HttpResponse("this  is about page ")
+   return render(request,'services.html')
 
 def contact(request):
-    return HttpResponse("this  is contact page ")
+       return render(request,'contact_us.html')
