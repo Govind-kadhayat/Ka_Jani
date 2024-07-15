@@ -14,3 +14,7 @@ def services(request):
 
 def contact(request):
        return render(request,'contact_us.html')
+
+
+def dashboard(request):
+   return render(request,'dashboard.html')
