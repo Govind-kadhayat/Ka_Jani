@@ -1,5 +1,6 @@
 from django.shortcuts import render,HttpResponse
-
+from datetime import datetime
+from home.models import contact
 # Create your views here.
 
 def index(request):
@@ -13,7 +14,16 @@ def services(request):
    return render(request,'services.html')
 
 def contact(request):
-       return render(request,'contact_us.html')
+      if request.method == "POST":
+         name = request.POST.get('name')
+         email = request.POST.get('email')
+         phone = request.POST.get('phone')
+         address= request.POST.get('address')
+         desc = request.POST.get('desc')
+         contact = Contact(name=name,email=email,phone=phone,desc=desc,date =datetime.today())
+         contact.save()
+
+      return render(request,'contact.html')
 
 
 def dashboard(request):

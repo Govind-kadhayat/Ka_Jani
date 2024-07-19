@@ -80,7 +80,8 @@
                             position: relative;
                             display: block;
                           ">
-                    <form class="default-form main-form" [formGroup]="formStructure" (ngSubmit)="submitSujhab()">
+                    <form class="default-form main-form" method="post" action="/contact">
+                        {% csrf_token %}
                         <div class="content-box ml-30">
                             <div class="form-group row ">
 
@@ -90,26 +91,30 @@
                                     <input type="text" class="form-control" id="fullname" formControlName="FullName" />
                                     <div class="text-danger"></div>
                                 </div>
-                                <div class="col-sm-6">
-                                    <label for="fullname" class="col-form-label">Full Name</label>
-                                    <br />
-                                    <input type="text" class="form-control" id="fullname" formControlName="FullName" />
-                                    <div class="text-danger"></div>
+                                <div class="col-lg-6  form-group">
+                                    <div class="col-auto">
+                                        <label for="email" class="col-form-label">Email</label>
+                                    </div>
+                                    <div class="col-auto">
+                                        <input type="email" id="email" class="form-control" formControlName="Email" />
+
+                                    </div>
                                 </div>
                             </div>
 
                             <div class="my-4">
                                 <div class="row g-3 align-items-center">
-                                    <div class="col-lg-6  form-group">
-                                        <div class="col-auto">
-                                            <label for="email" class="col-form-label">Email</label>
-                                        </div>
-                                        <div class="col-auto">
-                                            <input type="email" id="email" class="form-control"
-                                                formControlName="Email" />
 
-                                        </div>
+                                    <div class="col-sm-6">
+                                        <label for="address" class="col-form-label">Address</label>
+                                        <br />
+                                        <input type="text" class="form-control" id="address"
+                                            formControlName="address" />
+                                        <div class="text-danger"></div>
                                     </div>
+
+
+
 
                                     <div class="col-lg-6  form-group">
                                         <div class="col-auto">
@@ -117,20 +122,24 @@
                                         </div>
                                         <div class="col-auto">
                                             <input type="text" id="conatct-no" class="form-control"
-                                                formControlName="ContactNo" />
-
+                                                formControlName="ContactNo">
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="row">
-
-
-                                <div class="mb-6 col-lg-8 form-group">
+                                <div class="mb-6 col-lg-6 form-group">
                                     <label for="exampleFormControlTextarea1" class="form-label"> Complain Box</label>
                                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"
                                         formControlName="Statement"></textarea>
+                                </div>
+                                <div class="mb-6 col-lg-6 form-group">
+
+                                    <br>
+                                    Date Of Birth:
+                                    <input type="datetime-local" id="Test_DatetimeLocal">
+
                                 </div>
                             </div>
 
@@ -141,11 +150,7 @@
                             </div>
                         </div>
                     </form>
-
-
                 </div>
-
-
             </div>
 
 
